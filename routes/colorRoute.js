@@ -9,9 +9,9 @@ const {
 const { authMiddleware, isAdmin } = require("../middlewares/authMiddleware");
 const router = express.Router();
 
-router.post("/", authMiddleware, isAdmin, createColor);
-router.put("/:id", authMiddleware, isAdmin, updateColor);
-router.delete("/:id", authMiddleware, isAdmin, deleteColor);
+router.post("/", authMiddleware, createColor);
+router.put("/:id", authMiddleware, updateColor);
+router.delete("/:id", authMiddleware, deleteColor);
 router.get("/:id", getColor);
 router.get("/", getallColor);
 
