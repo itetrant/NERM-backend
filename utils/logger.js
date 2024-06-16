@@ -23,7 +23,7 @@ const message = input => {
     }
 };
 
-async function writelog(obj,id) {
+async function logger(obj,id) {
     let trace_id = id;
     if (debug) {
         console.log(JSON.stringify(message(obj)));
@@ -66,4 +66,4 @@ async function writelog(obj,id) {
     }
 }
 
-module.exports = writelog ;
+module.exports = logger ;

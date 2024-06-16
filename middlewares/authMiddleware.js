@@ -4,6 +4,8 @@ const jwt = require("jsonwebtoken");
 
 const authMiddleware = async (req, res, next) => {
   let token;
+  console.log(JSON.stringify(req.cookies))
+  console.log(JSON.stringify(req.headers.authorization))
   if (req?.headers?.authorization?.startsWith("Bearer ")) {
 
     try {
@@ -30,7 +32,7 @@ const authMiddleware = async (req, res, next) => {
 };
 
 const isAdmin = async (req, res, next) => {
-      if (req?.user?.role.startsWith("admin")) {
+      if (req?.user?.role.startsWith("admin") || req?.user?.role.startsWith("ADMIN")) {
         return next(); 
       } else {
             const statuscode = res.statusCode == 200 ? 500 : res.statusCode;
